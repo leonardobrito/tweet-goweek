@@ -11,12 +11,9 @@ const io = require("socket.io")(server);
  * Database setup
  */
 
-mongoose.connect(
-  "mongodb://goweek:goweek123@ds149207.mlab.com:49207/goweek-backend",
-  {
-    useNewUrlParser: true
-  }
-);
+mongoose.connect("mongodb://xxx:xxx@xxx.mlab.com:49207/xxx-xxx", {
+  useNewUrlParser: true
+});
 
 app.use((req, res, next) => {
   req.io = io;
