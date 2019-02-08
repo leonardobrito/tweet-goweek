@@ -11,21 +11,24 @@ const io = require("socket.io")(server);
  * Database setup
  */
 
-mongoose.connect("mongodb://xxx:xxx@xxx.mlab.com:49207/xxx-xxx", {
-  useNewUrlParser: true
-});
+mongoose.connect(
+  "mongodb://goweek:goweek123@ds149207.mlab.com:49207/goweek-backend",
+  {
+    useNewUrlParser: true
+  }
+);
 
 app.use((req, res, next) => {
   req.io = io;
   return next();
 });
 
-app.use(cors);
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(require("./routes"));
 
-app.listen("3000", () => {
-  console.log("Server started on port 3000");
+server.listen(3000, () => {
+  console.log("server on port 3000");
 });
